@@ -15,8 +15,21 @@ public class HeartCollect : MonoBehaviour
 
 	void OnTriggerEnter () 
 	{
-		CollectSound.Play ();
-		HealthMonitor.HealthValue += 1;
-		ThisHeart.SetActive (false);
+		if (HealthMonitor.HealthValue == 300) 
+		{
+			//tyt nihyia net, ididte nahui
+		}
+		if (HealthMonitor.HealthValue > 280 && HealthMonitor.HealthValue < 300) 
+		{
+			CollectSound.Play ();
+			HealthMonitor.HealthValue = 300;
+			ThisHeart.SetActive (false);
+		}
+		if (HealthMonitor.HealthValue <= 280)
+		{
+			CollectSound.Play ();
+			HealthMonitor.HealthValue += 20;
+			ThisHeart.SetActive (false);
+		}
 	}
 }

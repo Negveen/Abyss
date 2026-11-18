@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad5cd14fdd7e1942beef0ba69e52aca, type: 3}
+  m_Name: Builder Settings
+  m_EditorClassIdentifier: 
+  usePaintLand: 1
+  nature:
+  - name: Crates & Wagons
+    prefabs:
+    - {fileID: 919132149155446097, guid: cdb131bc5bb91374aa66e46932c64ef2, type: 3}
+    - {fileID: 919132149155446097, guid: cdb131bc5bb91374aa66e46932c64ef2, type: 3}
+    - {fileID: 919132149155446097, guid: 598a1f02868375f429a37fdc1648f03f, type: 3}
+    size: {x: 0.9, y: 1.1}
+    clump: {x: 1, y: 2}
+    maxSlope: 35
+    followSlope: 0.6
+  - name: Loose Bricks
+    prefabs:
+    - {fileID: 919132149155446097, guid: ab8c7d4efa48bcb4f8a13e9cd229b39f, type: 3}
+    - {fileID: 919132149155446097, guid: 35dba4b771c18cc4babb8387cc21c6f5, type: 3}
+    - {fileID: 919132149155446097, guid: 34e80386dc9bd2842a4edea4014be923, type: 3}
+    - {fileID: 919132149155446097, guid: fca71ec4791751040918e5e4a4fea047, type: 3}
+    size: {x: 0.9, y: 1.1}
+    clump: {x: 2, y: 4}
+    maxSlope: 35
+    followSlope: 0.6
+  pathMaterial: {fileID: 0}
+  pathLift: 0.03
+  mergeDetails: 1
+  removeTerrainTrees: 1

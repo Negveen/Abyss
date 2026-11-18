@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258ff272dbe700941ad56bcf77a87bae, type: 3}
+  m_Name: Building Themes
+  m_EditorClassIdentifier: 
+  themes:
+  - name: Original
+    on: 0
+    original: 1
+    stoneOnly: 0
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.62, g: 0.56, b: 0.48, a: 1}
+  - name: Terracotta
+    on: 0
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.62, g: 0.56, b: 0.48, a: 1}
+  - name: Slate
+    on: 0
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.32, g: 0.36, b: 0.42, a: 1}
+    walls: {r: 0.84, g: 0.84, b: 0.82, a: 1}
+    wood: {r: 0.36, g: 0.3, b: 0.26, a: 1}
+    stone: {r: 0.5, g: 0.5, b: 0.52, a: 1}
+  - name: Moss
+    on: 1
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.38, g: 0.48, b: 0.28, a: 1}
+    walls: {r: 0.78, g: 0.76, b: 0.62, a: 1}
+    wood: {r: 0.42, g: 0.34, b: 0.24, a: 1}
+    stone: {r: 0.5, g: 0.52, b: 0.44, a: 1}
+  - name: Ochre
+    on: 0
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.6, g: 0.3, b: 0.18, a: 1}
+    walls: {r: 0.86, g: 0.66, b: 0.38, a: 1}
+    wood: {r: 0.42, g: 0.28, b: 0.2, a: 1}
+    stone: {r: 0.6, g: 0.5, b: 0.4, a: 1}
+  - name: Nordic
+    on: 0
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.28, g: 0.27, b: 0.3, a: 1}
+    walls: {r: 0.9, g: 0.9, b: 0.88, a: 1}
+    wood: {r: 0.25, g: 0.2, b: 0.18, a: 1}
+    stone: {r: 0.55, g: 0.55, b: 0.55, a: 1}
+  - name: Coast
+    on: 0
+    original: 0
+    stoneOnly: 0
+    roof: {r: 0.25, g: 0.38, b: 0.55, a: 1}
+    walls: {r: 0.93, g: 0.91, b: 0.85, a: 1}
+    wood: {r: 0.3, g: 0.36, b: 0.45, a: 1}
+    stone: {r: 0.62, g: 0.6, b: 0.56, a: 1}
+  - name: Sandstone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.4836, g: 0.4216, b: 0.3224, a: 1}
+  - name: Honey Limestone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.5084, g: 0.4402, b: 0.2976, a: 1}
+  - name: Pale Limestone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.527, g: 0.5146, b: 0.4774, a: 1}
+  - name: Chalk White
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.5704, g: 0.56420004, b: 0.5394, a: 1}
+  - name: Light Granite
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.434, g: 0.4278, b: 0.41540003, a: 1}
+  - name: Grey Granite
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.34100002, g: 0.34100002, b: 0.3472, a: 1}
+  - name: Dark Basalt
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.2046, g: 0.2046, b: 0.217, a: 1}
+  - name: Charcoal
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.1302, g: 0.1302, b: 0.1426, a: 1}
+  - name: Slate Blue
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.2728, g: 0.31, b: 0.3658, a: 1}
+  - name: Frost Grey
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.3906, g: 0.41540003, b: 0.4526, a: 1}
+  - name: Mossy Green
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.31, g: 0.3472, b: 0.2604, a: 1}
+  - name: Olive Fieldstone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.3534, g: 0.34100002, b: 0.24800001, a: 1}
+  - name: Red Sandstone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.41540003, g: 0.24800001, b: 0.19839999, a: 1}
+  - name: Rose Granite
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.45880002, g: 0.3534, b: 0.3286, a: 1}
+  - name: Baked Clay
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.4526, g: 0.29140002, b: 0.2108, a: 1}
+  - name: Golden Ochre
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.49600002, g: 0.3906, b: 0.22320001, a: 1}
+  - name: Brown Fieldstone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.31, g: 0.24800001, b: 0.186, a: 1}
+  - name: Desert Tan
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.4712, g: 0.3844, b: 0.27899998, a: 1}
+  - name: Custom Stone
+    on: 0
+    original: 0
+    stoneOnly: 1
+    roof: {r: 0.78, g: 0.36, b: 0.22, a: 1}
+    walls: {r: 0.86, g: 0.78, b: 0.62, a: 1}
+    wood: {r: 0.5, g: 0.36, b: 0.25, a: 1}
+    stone: {r: 0.62, g: 0.56, b: 0.48, a: 1}

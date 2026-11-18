@@ -13,6 +13,7 @@ public class NPC001 : MonoBehaviour
 	public GameObject TextBox;
 	public GameObject NPCName;
 	public GameObject NPCText;
+	public GameObject GateOpen;
 
 	void Update () 
 	{
@@ -59,6 +60,7 @@ public class NPC001 : MonoBehaviour
 			NPCName.GetComponent<Text> ().text = "Friendly Friend";
 			NPCName.SetActive (true);
 			NPCText.GetComponent<Text>().text = "We have spider problem. Can you go outside the village, kill the spiders and their boss. Here is the key.";
+			GateOpen.SetActive(true);
 			NPCText.SetActive(true);
 			yield return new WaitForSeconds(5.5f);
 			NPCName.SetActive(false);

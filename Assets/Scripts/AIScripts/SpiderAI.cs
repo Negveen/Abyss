@@ -61,7 +61,7 @@ public class SpiderAI : MonoBehaviour
 		yield return new WaitForSeconds (0.5f);
 		if (SpiderEnemy.GlobalSpider != 6) 
 		{
-			HealthMonitor.HealthValue -= 1;
+			HealthMonitor.HealthValue -= 60;
 		}
 		yield return new WaitForSeconds (0.4f);
 		DealingDamage = 0;

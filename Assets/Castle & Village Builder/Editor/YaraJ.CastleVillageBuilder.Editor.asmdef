@@ -1,0 +1,14 @@
+{
+    "name": "YaraJ.CastleVillageBuilder.Editor",
+    "rootNamespace": "YaraJ.CastleVillageBuilder",
+    "references": [
+        "YaraJ.CastleVillageBuilder"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": false
+}

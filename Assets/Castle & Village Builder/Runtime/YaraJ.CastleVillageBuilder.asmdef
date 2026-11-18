@@ -1,0 +1,10 @@
+{
+    "name": "YaraJ.CastleVillageBuilder",
+    "rootNamespace": "YaraJ.CastleVillageBuilder",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": false
+}

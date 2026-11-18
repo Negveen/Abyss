@@ -39,6 +39,8 @@ public class Quest001Take : MonoBehaviour
 				ThePlayer.SetActive (false);
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.Confined;
+				MasterQuest.mainQuestName = "SwordEnjoyer9000";
+				MasterQuest.mainQuestInfo = "I NEED MORE POWER!";
 			}
 		}
 	}

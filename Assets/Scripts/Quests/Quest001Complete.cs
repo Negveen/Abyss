@@ -36,7 +36,7 @@ public class Quest001Complete : MonoBehaviour
 				PlayerPrefs.SetInt("GoldAmountSave", GlobalCash.GoldAmount);
 				QuestManager.ActiveQuestNumber = 2;
 				ExMark.SetActive (false);
-				GlobalExp.CurrentExp += 100;
+				GlobalXP.CurrentXP += 100;
 				ActionDisplay.SetActive (false);
 				ActionText.SetActive (false);
 				CompleteTrigger.SetActive (false);

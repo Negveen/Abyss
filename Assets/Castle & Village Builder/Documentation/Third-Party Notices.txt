@@ -1,0 +1,16 @@
+Castle & Village Builder - Third-Party Notices
+
+This package includes the following third-party assets.
+
+------------------------------------------------------------
+Medieval Village MegaKit (Standard / free version)
+by Quaternius - https://quaternius.com
+Location: Medieval Village Kit/ (Models, Textures)
+
+License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The models and textures are in the public domain. The materials,
+colour themes and generated meshes in this folder were made for
+Castle & Village Builder.
+------------------------------------------------------------
