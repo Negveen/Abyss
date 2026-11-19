@@ -59,10 +59,9 @@ public class NPC001_Comp : MonoBehaviour
 			NPCName.GetComponent<Text> ().text = "Friendly Friend";
 			NPCName.SetActive (true);
 			NPCText.GetComponent<Text>().text = "Thank you very much for your help. There is a cave outside the village, please go explore.";
-			//cave object set here
-			QuestManager.ActiveQuestNumber = 3;
-			QuestManager.SubQuestNumber = 1;			
-			NPCText.SetActive(true);
+            //cave object set here
+            QuestManager.SetQuestState(3, 1);
+            NPCText.SetActive(true);
 			yield return new WaitForSeconds(5.5f);
 			NPCName.SetActive(false);
 			NPCText.SetActive(false);

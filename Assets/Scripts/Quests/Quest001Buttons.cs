@@ -21,8 +21,8 @@ public class Quest001Buttons : MonoBehaviour
 	public void AcceptQuest () 
 	{
 		MiniMap.SetActive(true);
-		QuestManager.SubQuestNumber = 1;
-		ThePlayer.SetActive (true);
+        QuestManager.SetQuestState(1, 1);
+        ThePlayer.SetActive (true);
 		NoticeCam.SetActive (false);
 		UIQuest.SetActive (false);
 		StartCoroutine (SetQuestUI ());
@@ -37,7 +37,6 @@ public class Quest001Buttons : MonoBehaviour
 		Objective01.GetComponent<Text> ().text = "Reach the clearing in the wood";
 		Objective02.GetComponent<Text> ().text = "Open the chest";
 		Objective03.GetComponent<Text> ().text = "Retrieve the weapon";
-		QuestManager.ActiveQuestNumber = 1;
 		yield return new WaitForSeconds (0.5f);
 		ActiveQuestBox.SetActive (true);
 		yield return new WaitForSeconds (1);

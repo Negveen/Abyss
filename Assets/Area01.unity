@@ -11991,7 +11991,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Read Notice
+  m_Text: None
 --- !u!222 &539672233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14466,7 +14466,6 @@ MonoBehaviour:
   ActionText: {fileID: 539672230}
   ActionDisplay: {fileID: 2101010211}
   TheObjective: {fileID: 822938247}
-  CloseObjective: 0
   ChestBlock: {fileID: 1517721335}
   QuestComplete: {fileID: 136819844}
   ExMark: {fileID: 362547825}
@@ -17824,6 +17823,7 @@ GameObject:
   - component: {fileID: 822938250}
   - component: {fileID: 822938249}
   - component: {fileID: 822938248}
+  - component: {fileID: 822938252}
   m_Layer: 5
   m_Name: ActiveQuestObj3
   m_TagString: Untagged
@@ -17913,6 +17913,21 @@ RectTransform:
   m_AnchoredPosition: {x: -224.21997, y: -183}
   m_SizeDelta: {x: 400, y: 37.848}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &822938252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822938247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397f74f3c42392643b921cb6ecc5bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeShrink: 0.8
+  shrinkSpeed: 1.5
+  completeColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &827779666
 GameObject:
   m_ObjectHideFlags: 0
@@ -21735,6 +21750,7 @@ GameObject:
   - component: {fileID: 1174409350}
   - component: {fileID: 1174409349}
   - component: {fileID: 1174409348}
+  - component: {fileID: 1174409351}
   m_Layer: 5
   m_Name: ActiveQuestObj1
   m_TagString: Untagged
@@ -21824,6 +21840,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174409346}
   m_CullTransparentMesh: 1
+--- !u!114 &1174409351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174409346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397f74f3c42392643b921cb6ecc5bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeShrink: 0.8
+  shrinkSpeed: 1.5
+  completeColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &1176521749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25190,6 +25221,7 @@ GameObject:
   - component: {fileID: 1305721683}
   - component: {fileID: 1305721682}
   - component: {fileID: 1305721681}
+  - component: {fileID: 1305721684}
   m_Layer: 5
   m_Name: ActiveQuestObj2
   m_TagString: Untagged
@@ -25279,6 +25311,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305721679}
   m_CullTransparentMesh: 1
+--- !u!114 &1305721684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305721679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397f74f3c42392643b921cb6ecc5bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeShrink: 0.8
+  shrinkSpeed: 1.5
+  completeColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!43 &1318763669
 Mesh:
   m_ObjectHideFlags: 0
@@ -29461,7 +29508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TheObjective: {fileID: 1174409346}
-  CloseObjective: 0
 --- !u!65 &1554384866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37146,7 +37192,6 @@ MonoBehaviour:
   ActionDisplay: {fileID: 2101010211}
   ActionText: {fileID: 539672230}
   TheObjective: {fileID: 1305721679}
-  CloseObjective: 0
   TakeSword: {fileID: 641942923}
 --- !u!65 &2006018883
 BoxCollider:

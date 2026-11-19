@@ -49,7 +49,7 @@ public class SpiderBossEnemy : MonoBehaviour
         TheSpider.GetComponent<Animation>().enabled = false;
         OldNPC.SetActive(false);
         NewNPC.SetActive(true);
-		QuestManager.SubQuestNumber = 4;
-	}
+        QuestManager.SetQuestState(2, 4);
+    }
 }
 

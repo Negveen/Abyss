@@ -14,8 +14,9 @@ public class NPC001 : MonoBehaviour
 	public GameObject NPCName;
 	public GameObject NPCText;
 	public GameObject GateOpen;
+    public GameObject NPCExMark;
 
-	void Update () 
+    void Update () 
 	{
 		TheDistance = PlayerCasting.DistanceFromTarget;
 	}
@@ -56,8 +57,9 @@ public class NPC001 : MonoBehaviour
 	{
 		if(QuestManager.ActiveQuestNumber == 2) 
 		{
-			TextBox.SetActive (true);
-			NPCName.GetComponent<Text> ().text = "Friendly Friend";
+            QuestManager.SetQuestState(2, 1);
+            TextBox.SetActive (true);
+			NPCName.GetComponent<Text> ().text = "Dave";
 			NPCName.SetActive (true);
 			NPCText.GetComponent<Text>().text = "We have spider problem. Can you go outside the village, kill the spiders and their boss. Here is the key.";
 			GateOpen.SetActive(true);
@@ -68,11 +70,12 @@ public class NPC001 : MonoBehaviour
 			TextBox.SetActive(false);
 			ActionDisplay.SetActive (true);
 			ActionText.SetActive (true);
-		}
+            NPCExMark.SetActive(false);
+        }
 		else 
 		{
 			TextBox.SetActive (true);
-			NPCName.GetComponent<Text> ().text = "Friendly Friend";
+			NPCName.GetComponent<Text> ().text = "Dave";
 			NPCName.SetActive (true);
 			NPCText.GetComponent<Text>().text = "Hello friend, I may have a quest for you if you wish to accept it. Please come back later on this afternoon.";
 			NPCText.SetActive(true);

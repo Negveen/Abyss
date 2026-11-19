@@ -10,25 +10,11 @@ public class Q001Objective02 : MonoBehaviour
 	public GameObject ActionDisplay;
 	public GameObject ActionText;
 	public GameObject TheObjective;
-	public int CloseObjective;
 	public GameObject TakeSword;
 
     void Update()
     {
-        TheDistance = PlayerCasting.DistanceFromTarget;
-		if (CloseObjective == 3) 
-		{
-			TheObjective.SetActive(true);
-			if (TheObjective.transform.localScale.y <= 0.0f) 
-			{
-				CloseObjective = 0;
-				TheObjective.SetActive (false);
-			} 
-			else 
-			{
-			TheObjective.transform.localScale -= new Vector3 (0.0f, 0.01f, 0.0f);
-			}
-		}
+        TheDistance = PlayerCasting.DistanceFromTarget;		
     }
 	
 	void OnMouseOver () 
@@ -46,10 +32,10 @@ public class Q001Objective02 : MonoBehaviour
 				this.GetComponent<BoxCollider> ().enabled = false;
 				TreasureChest.GetComponent<Animation> ().Play ("Q01ChestOpen");
 				TakeSword.SetActive (true);
-				CloseObjective = 3;
 				ActionText.SetActive (false);
 				ActionDisplay.SetActive (false);
-			}
+                TheObjective.GetComponent<ObjectiveCompleteAnim>().PlayComplete();
+            }
 		}
 	}
 

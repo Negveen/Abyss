@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quest001Take : MonoBehaviour
 {  
@@ -23,7 +24,8 @@ public class Quest001Take : MonoBehaviour
 		{
 			AttackBlocker.BlockSword = 1;
 			ActionDisplay.SetActive (true);
-			ActionText.SetActive (true);
+			ActionText.GetComponent<Text>().text = "Read Notice";
+            ActionText.SetActive (true);
 		}
 		
 		if (Input.GetButtonDown ("Action")) 
@@ -39,8 +41,6 @@ public class Quest001Take : MonoBehaviour
 				ThePlayer.SetActive (false);
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.Confined;
-				MasterQuest.mainQuestName = "SwordEnjoyer9000";
-				MasterQuest.mainQuestInfo = "I NEED MORE POWER!";
 			}
 		}
 	}

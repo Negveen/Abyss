@@ -12,8 +12,9 @@ public class Quest001Complete : MonoBehaviour
 	public GameObject ThePlayer;
 	public GameObject ExMark;
 	public GameObject CompleteTrigger;
+    public GameObject NPCExMark;
 
-	void Update () 
+    void Update () 
 	{
 		TheDistance = PlayerCasting.DistanceFromTarget;
 	}
@@ -31,16 +32,16 @@ public class Quest001Complete : MonoBehaviour
 		{
 			if (TheDistance <= 3) 
 			{
-				QuestManager.SubQuestNumber = 0;
-				GlobalCash.GoldAmount += 100;
-				PlayerPrefs.SetInt("GoldAmountSave", GlobalCash.GoldAmount);
-				QuestManager.ActiveQuestNumber = 2;
+                QuestManager.SetQuestState(2, 0);
+                GlobalCash.GoldAmount += 100;
+				PlayerPrefs.SetInt("GoldAmountSave", GlobalCash.GoldAmount);				
 				ExMark.SetActive (false);
 				GlobalXP.CurrentXP += 100;
 				ActionDisplay.SetActive (false);
 				ActionText.SetActive (false);
 				CompleteTrigger.SetActive (false);
-			}
+                NPCExMark.SetActive(true);
+            }
 		}
 	}
 
