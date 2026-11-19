@@ -13,8 +13,9 @@ public class NPC001_Comp : MonoBehaviour
 	public GameObject TextBox;
 	public GameObject NPCName;
 	public GameObject NPCText;
+    public GameObject NPCExMark;
 
-	void Update () 
+    void Update () 
 	{
 		TheDistance = PlayerCasting.DistanceFromTarget;
 	}
@@ -53,13 +54,12 @@ public class NPC001_Comp : MonoBehaviour
 
 	IEnumerator NPC001Active () 
 	{
-		if(QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 4) 
+		if(QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 2) 
 		{
 			TextBox.SetActive (true);
 			NPCName.GetComponent<Text> ().text = "Friendly Friend";
 			NPCName.SetActive (true);
 			NPCText.GetComponent<Text>().text = "Thank you very much for your help. There is a cave outside the village, please go explore.";
-            //cave object set here
             QuestManager.SetQuestState(3, 1);
             NPCText.SetActive(true);
 			yield return new WaitForSeconds(5.5f);
@@ -68,7 +68,8 @@ public class NPC001_Comp : MonoBehaviour
 			TextBox.SetActive(false);
 			ActionDisplay.SetActive (true);
 			ActionText.SetActive (true);
-		}
+            NPCExMark.SetActive (false);
+        }
 		else 
 		{
 			TextBox.SetActive (true);

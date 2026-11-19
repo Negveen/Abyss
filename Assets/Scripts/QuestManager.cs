@@ -8,24 +8,50 @@ public class QuestManager : MonoBehaviour
 	public int InternalQuestNumber;
 
     public GameObject MainMark;
-    public GameObject Objective01Mark;
-    public GameObject Objective02Mark;
-    public GameObject Objective03Mark;
+    public GameObject Pointer;
     public static int SubQuestNumber;
     public int InternalSubNumber;
-    public GameObject Pointer;
+    public BaseQuest quest01;
+    public BaseQuest quest02;
+
+    private static QuestManager instance;
+    
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-        UpdateQuestText();
+        SetQuestState(ActiveQuestNumber, SubQuestNumber);
     }
+
     public static void SetQuestState(int quest, int sub)
     {
+
         ActiveQuestNumber = quest;
         SubQuestNumber = sub;
-        UpdateQuestText();
+        instance.Pointer.SetActive(sub != 0);
+        switch (quest)
+        {
+            case 0:
+                MasterQuest.mainQuestName = "No Active Quest";
+                MasterQuest.mainQuestInfo = "Check the notice board in the village.";
+                break;
+            case 1:
+                instance.quest01.OnStepChanged(sub);
+                break;
+            case 2:
+                instance.quest02.OnStepChanged(sub);
+                break;
+            case 3:
+                MasterQuest.mainQuestName = "The Cave";
+                MasterQuest.mainQuestInfo = "Explore the cave outside the village.";
+                break;
+        }
+    
     }
-    public static void UpdateQuestText()
+   /* public static void UpdateQuestText()
     {
         switch (ActiveQuestNumber)
         {
@@ -64,36 +90,12 @@ public class QuestManager : MonoBehaviour
                 MasterQuest.mainQuestInfo = "Explore the cave outside the village.";
                 break;
         }
-    }
+    }*/
 
     void Update () 
 	{
 		InternalQuestNumber = ActiveQuestNumber;
         InternalSubNumber = SubQuestNumber;
         Pointer.transform.LookAt(MainMark.transform);
-
-        if (InternalSubNumber == 0)
-        {
-            Pointer.SetActive(false);
-        }
-        else
-        {
-            Pointer.SetActive(true);
-        }
-		
-        if (InternalSubNumber == 1)
-        {
-            MainMark.transform.position = Objective01Mark.transform.position;
-        }
-
-        if (InternalSubNumber == 2)
-        {
-            MainMark.transform.position = Objective02Mark.transform.position;
-        }
-
-        if (InternalSubNumber == 3)
-        {
-            MainMark.transform.position = Objective03Mark.transform.position;
-        }
     }
 }

@@ -55,8 +55,8 @@ public class NPC001 : MonoBehaviour
 
 	IEnumerator NPC001Active () 
 	{
-		if(QuestManager.ActiveQuestNumber == 2) 
-		{
+        if (QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 0)
+        {
             QuestManager.SetQuestState(2, 1);
             TextBox.SetActive (true);
 			NPCName.GetComponent<Text> ().text = "Dave";
