@@ -9,7 +9,7 @@ public class TrapDoorTrig : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        trapDoor.GetComponent<Animator>().enabled = true;
+        trapDoor.GetComponent<Animation>().Play("TrapAnim");
     }
 
 }
