@@ -11,7 +11,7 @@ public class LedgeRespawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            thePlayer.transform.position = new Vector3(44, -17, 23);
+            thePlayer.transform.position = new Vector3(30, -8, 73);
             fadeIn.GetComponent<Animation>().Play("FadeScreenIn");
         }
     }
