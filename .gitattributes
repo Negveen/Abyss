@@ -37,7 +37,7 @@
 
 # Unity YAML files
 *.anim                  unity-yaml
-*.asset                 unity-yaml
+# Note: *.asset is excluded from unity-yaml (eol=lf) because Unity .asset files can be binary (e.g. TerrainData, NavMesh)
 *.brush                 unity-yaml
 *.controller            unity-yaml
 *.flare                 unity-yaml
@@ -167,5 +167,8 @@ Packages/packages-lock.json linguist-generated
 # Spine export file for Unity
 *.skel.bytes            lfs
 
-# Exceptions for .asset files such as lightning pre-baking
+# Exceptions for binary .asset files (TerrainData, NavMesh, lighting pre-baking, etc.)
+*Terrain*.asset        binary
+NavMesh-*.asset        binary
+LightmapSnapshot.asset binary
 LightingData.asset     binary
