@@ -16,6 +16,8 @@ public class NPC001 : MonoBehaviour
 	public GameObject GateOpen;
     public GameObject NPCExMark;
     public QuestPopupUI questPopupUI;
+	public GameObject Spider;
+	public GameObject AmbushTrigger;
 
     void Update () 
 	{
@@ -65,6 +67,8 @@ public class NPC001 : MonoBehaviour
 			NPCText.GetComponent<Text>().text = "We have spider problem. Can you go outside the village, kill the spiders and their boss. Here is the key.";
 			GateOpen.SetActive(true);
 			NPCText.SetActive(true);
+			Spider.SetActive(true);
+			AmbushTrigger.SetActive(true);
 			yield return new WaitForSeconds(5.5f);
 
 			NPCName.SetActive(false);
@@ -84,10 +88,7 @@ public class NPC001 : MonoBehaviour
 			NPCName.SetActive(false);
 			NPCText.SetActive(false);
 			TextBox.SetActive(false);
-			ActionDisplay.SetActive (true);
-			ActionText.SetActive (true);
-		}
-		
+		}		
 	}
 
 }

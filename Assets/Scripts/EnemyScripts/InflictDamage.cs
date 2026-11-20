@@ -8,10 +8,16 @@ public class InflictDamage : MonoBehaviour
 	public float TargetDistance;
 	public float AllowedRange = 2.7f;
 	public AudioSource swingSword;
-	
-	void Update () 
+    public float AttackCooldown = 1.0f;
+    private bool canAttack = true;
+    void Update () 
 	{
-		if (Input.GetButtonDown ("Fire1")&& !SwingSword.isSwinging) 
+        if (Input.GetButtonDown("Fire1") && canAttack && AttackBlocker.BlockSword == 0)
+        {
+            StartCoroutine(AttackRoutine());
+        }
+        /*
+        if (Input.GetButtonDown ("Fire1") && !SwingSword.isSwinging) 
 		{
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.TransformDirection (Vector3.forward), out hit)) 
@@ -23,6 +29,22 @@ public class InflictDamage : MonoBehaviour
 					hit.transform.SendMessage ("DeductPoints", DamageAmount, SendMessageOptions.DontRequireReceiver);
 				}
 			}
-		}		
-	}
+		}	*/
+    }
+    IEnumerator AttackRoutine()
+    {
+        canAttack = false;
+        if (swingSword != null) swingSword.Play();
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
+            TargetDistance = hit.distance;
+            if (TargetDistance <= AllowedRange)
+            {
+                hit.transform.SendMessage("DeductPoints", DamageAmount, SendMessageOptions.DontRequireReceiver);
+            }
+        }
+        yield return new WaitForSeconds(AttackCooldown);
+        canAttack = true;
+    }
 }

@@ -36,7 +36,12 @@ public class SpiderEnemy : MonoBehaviour
 
 	IEnumerator DeathSpider () 
 	{
-		SpiderAIScript.enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+       
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
+        
+        SpiderAIScript.enabled = false;
 		SpiderStatus = 6;
 		CalculatedXP = BaseXP*GlobalLevel.CurrentLevel;
 		GlobalXP.CurrentXP += CalculatedXP;

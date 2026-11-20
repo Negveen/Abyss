@@ -1,20 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpiderBossAttack : MonoBehaviour
 {
     public GameObject TheEnemy;
-    public int AttackTrigger;
+    public GameObject ThePlayer;
+    public float AttackRange = 3.5f;
     public int DealingDamage;
+    public float HitDelay = 0.35f;     
+    public float RecoveryDelay = 1.0f; 
 
-	void Update () 
-	{
-		if (AttackTrigger == 0)
-        {
-            TheEnemy.GetComponent<Animation>().Play("walk");
-        }
-        if (AttackTrigger == 1)
+    private SpiderBossEnemy bossStats;
+    private NavMeshAgent agent;
+
+    void Start()
+    {
+        bossStats = GetComponent<SpiderBossEnemy>();
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        if (bossStats != null && bossStats.SpiderStatus == 6) return;
+
+        float dist = Vector3.Distance(transform.position, ThePlayer.transform.position);
+
+        if (dist <= AttackRange)
         {
             if (DealingDamage == 0)
             {
@@ -22,28 +34,28 @@ public class SpiderBossAttack : MonoBehaviour
                 StartCoroutine(TakingDamage());
             }
         }
-	}
+        else if (DealingDamage == 0)
+        {
+            if (agent != null && !agent.isStopped && agent.velocity.sqrMagnitude > 0.1f)
+                TheEnemy.GetComponent<Animation>().Play("walk");
+            else
+                TheEnemy.GetComponent<Animation>().Play("idle");
+        }
+    }
 
     IEnumerator TakingDamage()
     {
         DealingDamage = 2;
-        yield return new WaitForSeconds(1.1f);
-        if (SpiderEnemy.GlobalSpider != 6)
+        yield return new WaitForSeconds(HitDelay);
+        if (bossStats == null || bossStats.SpiderStatus != 6)
         {
-            HealthMonitor.HealthValue -= 100;
+            float dist = Vector3.Distance(transform.position, ThePlayer.transform.position);
+            if (dist <= AttackRange + 0.5f)
+            {
+                HealthMonitor.HealthValue -= 100;
+            }
         }
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(RecoveryDelay);
         DealingDamage = 0;
     }
-
-    void OnTriggerEnter()
-    {
-        AttackTrigger = 1;
-    }
-
-    void OnTriggerExit()
-    {
-        AttackTrigger = 0;
-    }
-
 }

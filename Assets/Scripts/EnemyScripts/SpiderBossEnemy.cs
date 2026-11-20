@@ -51,7 +51,7 @@ public class SpiderBossEnemy : MonoBehaviour
         OldNPC.SetActive(false);
         NewNPC.SetActive(true);
         NPCExMark.SetActive(true);
-        QuestManager.SetQuestState(2, 2);
+        QuestManager.SetQuestState(2, 2);       
     }
 }
 

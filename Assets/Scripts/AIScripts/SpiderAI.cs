@@ -1,70 +1,88 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiderAI : MonoBehaviour 
+public class SpiderAI : MonoBehaviour
 {
-	public GameObject ThePlayer;
-	public float TargetDistance;
-	public float AllowedRange = 40;
-	public GameObject TheEnemy;
-	public float EnemySpeed;
-	public int AttackTrigger;
-	public RaycastHit Shot;
-	public int DealingDamage;
+    public GameObject ThePlayer;
+    public float AllowedRange = 40f;
+    public float AttackRange = 2.5f;
+    public GameObject TheEnemy;
+    public float MoveSpeed = 3f;
+    public int DealingDamage;
 
-	void Update () 
-	{
-		transform.LookAt (ThePlayer.transform);
-        if(Physics.Raycast (transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+    private Rigidbody rb;
+    private SpiderEnemy spiderStats;
+    private bool isChasing;
+    public float HitDelay = 0.25f;  
+    public float RecoveryDelay = 0.65f; 
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        spiderStats = GetComponent<SpiderEnemy>();
+    }
+
+    void Update()
+    {
+        if (spiderStats != null && spiderStats.SpiderStatus == 6)
         {
-            TargetDistance = Shot.distance;
-            if (TargetDistance <= AllowedRange)
+            isChasing = false;
+            return;
+        }
+
+        Vector3 lookTarget = new Vector3(ThePlayer.transform.position.x, transform.position.y, ThePlayer.transform.position.z);
+        transform.LookAt(lookTarget);
+
+        float dist = Vector3.Distance(transform.position, ThePlayer.transform.position);
+
+        if (dist <= AttackRange)
+        {
+            isChasing = false;
+            if (DealingDamage == 0)
             {
-                EnemySpeed = 0.02f;
-                if (AttackTrigger == 0)
-                {
-                    TheEnemy.GetComponent<Animation>().Play("walk");
-                    transform.position = Vector3.MoveTowards(transform.position, ThePlayer.transform.position, EnemySpeed);
-                }
-            }
-            else
-            {
-                EnemySpeed = 0;
-                TheEnemy.GetComponent<Animation>().Play("idle");
+                TheEnemy.GetComponent<Animation>().Play("attack");
+                StartCoroutine(TakingDamage());
             }
         }
-		if (AttackTrigger == 1)
-		{
-			if(DealingDamage == 0)
-			{
-				EnemySpeed = 0;
-				TheEnemy.GetComponent<Animation>().Play("attack");
-				StartCoroutine(TakingDamage());
-			}
-		}
-	}
-
-    void OnTriggerEnter()
-    {
-        AttackTrigger = 1;
+        else if (dist <= AllowedRange)
+        {
+            isChasing = true;
+            TheEnemy.GetComponent<Animation>().Play("walk");
+        }
+        else
+        {
+            isChasing = false;
+            TheEnemy.GetComponent<Animation>().Play("idle");
+        }
     }
 
-    void OnTriggerExit()
+    void FixedUpdate()
     {
-        AttackTrigger = 0;
+        if (rb == null) return;
+
+        // ќбнул€ем горизонтальный импульс, чтобы паук не отлетал как м€ч при столкновени€х
+        rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+
+        if (!isChasing) return;
+
+        Vector3 target = new Vector3(ThePlayer.transform.position.x, rb.position.y, ThePlayer.transform.position.z);
+        Vector3 nextPos = Vector3.MoveTowards(rb.position, target, MoveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(nextPos);
     }
-	
-	IEnumerator TakingDamage()
-	{
-		DealingDamage = 2;
-		yield return new WaitForSeconds (0.5f);
-		if (SpiderEnemy.GlobalSpider != 6) 
-		{
-			HealthMonitor.HealthValue -= 60;
-		}
-		yield return new WaitForSeconds (0.4f);
-		DealingDamage = 0;
-	}
+
+    IEnumerator TakingDamage()
+    {
+        DealingDamage = 2;
+        yield return new WaitForSeconds(HitDelay);
+        if (spiderStats == null || spiderStats.SpiderStatus != 6)
+        {
+            float dist = Vector3.Distance(transform.position, ThePlayer.transform.position);
+            if (dist <= AttackRange + 0.5f)
+            {
+                HealthMonitor.HealthValue -= 60;
+            }
+        }
+        yield return new WaitForSeconds(RecoveryDelay);
+        DealingDamage = 0;
+    }
 }
-
