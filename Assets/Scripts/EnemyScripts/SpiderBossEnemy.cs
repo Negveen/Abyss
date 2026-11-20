@@ -10,11 +10,10 @@ public class SpiderBossEnemy : MonoBehaviour
 	public int BaseXP = 10;
 	public int CalculatedXP;
     public SpiderBossAI SpiderAIScript;
-    public static int GlobalSpider;
-    public GameObject OldNPC;
-    public GameObject NewNPC;
+    public static int GlobalSpider;    
     public SpiderBossAttack SpiderAttackScript;
-    public GameObject NPCExMark;
+    public Quest02Controller quest02;
+
 
     void Start()
     {
@@ -42,16 +41,13 @@ public class SpiderBossEnemy : MonoBehaviour
         SpiderAIScript.enabled = false;
         SpiderAttackScript.enabled = false;
         SpiderStatus = 6;
-		CalculatedXP = BaseXP * GlobalLevel.CurrentLevel;
-		GlobalXP.CurrentXP += CalculatedXP;
+        quest02.CheckAllSpidersDead();       
 		yield return new WaitForSeconds (0.5f);
 		TheSpider.GetComponent<Animation> ().Play ("death1");
         yield return new WaitForSeconds(0.3f);
         TheSpider.GetComponent<Animation>().enabled = false;
-        OldNPC.SetActive(false);
-        NewNPC.SetActive(true);
-        NPCExMark.SetActive(true);
-        QuestManager.SetQuestState(2, 2);       
+        CalculatedXP = BaseXP * GlobalLevel.CurrentLevel;
+        GlobalXP.CurrentXP += CalculatedXP;
     }
 }
 

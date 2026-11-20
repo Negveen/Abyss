@@ -9,7 +9,8 @@ public class SpiderBossAttack : MonoBehaviour
     public float AttackRange = 3.5f;
     public int DealingDamage;
     public float HitDelay = 0.35f;     
-    public float RecoveryDelay = 1.0f; 
+    public float RecoveryDelay = 1.0f;
+    public bool isIntroPlaying = false;
 
     private SpiderBossEnemy bossStats;
     private NavMeshAgent agent;
@@ -19,11 +20,15 @@ public class SpiderBossAttack : MonoBehaviour
         bossStats = GetComponent<SpiderBossEnemy>();
         agent = GetComponent<NavMeshAgent>();
     }
+    public void PlayIntro(string animName, float duration)
+    {
+        StartCoroutine(IntroRoutine(animName, duration));
+    }
 
     void Update()
     {
         if (bossStats != null && bossStats.SpiderStatus == 6) return;
-
+        if (isIntroPlaying) return;
         float dist = Vector3.Distance(transform.position, ThePlayer.transform.position);
 
         if (dist <= AttackRange)
@@ -57,5 +62,13 @@ public class SpiderBossAttack : MonoBehaviour
         }
         yield return new WaitForSeconds(RecoveryDelay);
         DealingDamage = 0;
+    }
+    IEnumerator IntroRoutine(string animName, float duration)
+    {
+        yield return new WaitForSeconds(1f);
+        isIntroPlaying = true;
+        TheEnemy.GetComponent<Animation>().Play(animName);
+        yield return new WaitForSeconds(duration);
+        isIntroPlaying = false;
     }
 }

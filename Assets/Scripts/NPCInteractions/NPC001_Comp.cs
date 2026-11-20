@@ -54,7 +54,7 @@ public class NPC001_Comp : MonoBehaviour
 
 	IEnumerator NPC001Active () 
 	{
-		if(QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 2) 
+		if(QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 3) 
 		{
 			TextBox.SetActive (true);
 			NPCName.GetComponent<Text> ().text = "Friendly Friend";
@@ -79,8 +79,6 @@ public class NPC001_Comp : MonoBehaviour
 			NPCName.SetActive(false);
 			NPCText.SetActive(false);
 			TextBox.SetActive(false);
-			ActionDisplay.SetActive (true);
-			ActionText.SetActive (true);
 		}
 		
 	}

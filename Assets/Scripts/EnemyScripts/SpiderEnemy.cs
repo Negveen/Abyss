@@ -11,8 +11,9 @@ public class SpiderEnemy : MonoBehaviour
 	public int CalculatedXP;
 	public SpiderAI SpiderAIScript;
 	public static int GlobalSpider;
-	
-	void Start()
+    public Quest02Controller quest02;
+
+    void Start()
 	{
 		SpiderAIScript = GetComponent<SpiderAI>();
 	}
@@ -43,7 +44,8 @@ public class SpiderEnemy : MonoBehaviour
         
         SpiderAIScript.enabled = false;
 		SpiderStatus = 6;
-		CalculatedXP = BaseXP*GlobalLevel.CurrentLevel;
+        quest02.CheckAllSpidersDead();
+        CalculatedXP = BaseXP*GlobalLevel.CurrentLevel;
 		GlobalXP.CurrentXP += CalculatedXP;
 		yield return new WaitForSeconds (0.5f);
 		TheSpider.GetComponent<Animation>().Play("die");		

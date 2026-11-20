@@ -13,8 +13,9 @@ public class Q001 : MonoBehaviour
 	public GameObject SmallSpider;
 	public GameObject BossSpider;
 	public AudioSource gateOpen;
-	
-	void Update () 
+    public GameObject TheObjective;
+
+    void Update () 
 	{
 		TheDistance = PlayerCasting.DistanceFromTarget;
 	}
@@ -33,7 +34,8 @@ public class Q001 : MonoBehaviour
 		{
 			if (TheDistance <= 3) 
 			{
-				GetComponent<BoxCollider>().enabled = false;
+                QuestManager.SetQuestState(2, 2);
+                GetComponent<BoxCollider>().enabled = false;
 				AttackBlocker.BlockSword = 2;
 				ActionDisplay.SetActive (false);
 				ActionText.SetActive (false);
@@ -43,7 +45,9 @@ public class Q001 : MonoBehaviour
 				RightGate.GetComponent<Animation>().Play("RightGateAnim");
 				SmallSpider.SetActive(true);
 				BossSpider.SetActive(true);
-			}
+                BossSpider.GetComponent<SpiderBossAttack>().PlayIntro("taunt", 1.5f);
+                TheObjective.GetComponent<ObjectiveCompleteAnim>().PlayComplete();
+            }
 		}
 	}
 

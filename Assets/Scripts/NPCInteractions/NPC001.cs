@@ -15,7 +15,6 @@ public class NPC001 : MonoBehaviour
 	public GameObject NPCText;
 	public GameObject GateOpen;
     public GameObject NPCExMark;
-    public QuestPopupUI questPopupUI;
 	public GameObject Spider;
 	public GameObject AmbushTrigger;
 
@@ -75,7 +74,7 @@ public class NPC001 : MonoBehaviour
 			NPCText.SetActive(false);
 			TextBox.SetActive(false);
             NPCExMark.SetActive(false);
-            if (questPopupUI != null) questPopupUI.ShowPopup("Spider Problem", "Kill the spiders and their boss", "Return to Dave");
+          
         }
 		else 
 		{

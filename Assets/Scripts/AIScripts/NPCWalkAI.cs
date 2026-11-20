@@ -13,9 +13,9 @@ public class NPCWalkAI : MonoBehaviour
 	void Start () 
 	{
 		mAnimator = gameObject.GetComponent<Animator>();
-        Xpos = Random.Range(202, 144);
-        Zpos = Random.Range(107, 122);
-        NPCDest.transform.position = new Vector3(Xpos, 5f, Zpos);
+        Xpos = Random.Range(117, 97);
+        Zpos = Random.Range(185, 167);
+        NPCDest.transform.position = new Vector3(Xpos, 15f, Zpos);
         StartCoroutine(RunRandomWalk());
 	}	
 
@@ -52,9 +52,9 @@ public class NPCWalkAI : MonoBehaviour
     {
 		isWalking = true;
         yield return new WaitForSeconds(5);
-		Xpos = Random.Range(202, 144);
-        Zpos = Random.Range(107, 122);
-        NPCDest.transform.position = new Vector3(Xpos, 5f, Zpos);
+        Xpos = Random.Range(117, 97);
+        Zpos = Random.Range(185, 167);
+        NPCDest.transform.position = new Vector3(Xpos, 15f, Zpos);
         StartCoroutine(RunRandomWalk());
 		// iswalking = false;
     }

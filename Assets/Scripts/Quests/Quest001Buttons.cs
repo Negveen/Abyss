@@ -13,7 +13,6 @@ public class Quest001Buttons : MonoBehaviour
 	public GameObject TheNotice;
 	public GameObject NoticeTrigger;
 	public GameObject MiniMap;
-    public QuestPopupUI questPopupUI;
 
     public void AcceptQuest () 
 	{
@@ -25,7 +24,7 @@ public class Quest001Buttons : MonoBehaviour
 		TheNotice.SetActive (false);
 		NoticeTrigger.SetActive (false);
         QuestManager.SetQuestState(1, 1);
-        questPopupUI.ShowPopup("My First Weapon", "Reach the clearing in the wood", "Open the chest", "Retrieve the weapon");       
+          
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

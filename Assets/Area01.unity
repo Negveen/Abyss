@@ -3564,7 +3564,6 @@ MonoBehaviour:
   TheNotice: {fileID: 722283780}
   NoticeTrigger: {fileID: 1794419691}
   MiniMap: {fileID: 5718816}
-  questPopupUI: {fileID: 855274484}
 --- !u!4 &160186150
 Transform:
   m_ObjectHideFlags: 0
@@ -6559,6 +6558,7 @@ MonoBehaviour:
   SmallSpider: {fileID: 1012339119}
   BossSpider: {fileID: 1653934203}
   gateOpen: {fileID: 151818657}
+  TheObjective: {fileID: 1174409346}
 --- !u!65 &272457843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10115,6 +10115,27 @@ MonoBehaviour:
   Xpos: 0
   Zpos: 0
   NPCDest: {fileID: 380106418}
+--- !u!65 &415507666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415507660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.75, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &415809299
 GameObject:
   m_ObjectHideFlags: 0
@@ -10243,6 +10264,7 @@ MonoBehaviour:
   BaseXP: 10
   CalculatedXP: 0
   SpiderAIScript: {fileID: 0}
+  quest02: {fileID: 855274483}
 --- !u!114 &415809305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10261,6 +10283,8 @@ MonoBehaviour:
   TheEnemy: {fileID: 255892994}
   MoveSpeed: 3
   DealingDamage: 0
+  HitDelay: 0.25
+  RecoveryDelay: 0.65
 --- !u!195 &415809306
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12657,7 +12681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &558169566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18321,6 +18345,7 @@ GameObject:
   - component: {fileID: 855274479}
   - component: {fileID: 855274482}
   - component: {fileID: 855274483}
+  - component: {fileID: 855274485}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -18346,6 +18371,7 @@ MonoBehaviour:
   InternalSubNumber: 0
   quest01: {fileID: 855274482}
   quest02: {fileID: 855274483}
+  quest03: {fileID: 855274485}
 --- !u!4 &855274480
 Transform:
   m_ObjectHideFlags: 0
@@ -18393,6 +18419,7 @@ MonoBehaviour:
   objective01Mark: {fileID: 1554384864}
   objective02Mark: {fileID: 2006018881}
   objective03Mark: {fileID: 136819844}
+  questPopupUI: {fileID: 855274484}
 --- !u!114 &855274483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18406,9 +18433,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMark: {fileID: 1253524434}
-  spiderMark: {fileID: 272457841}
-  returnNpcMark: {fileID: 1710868195}
+  objective01Mark: {fileID: 272457841}
+  objective02Mark: {fileID: 1653934203}
+  objective03Mark: {fileID: 1710868195}
+  questPopupUI: {fileID: 855274484}
+  bossSpider: {fileID: 1653934212}
+  smallSpiders:
+  - {fileID: 415809304}
+  - {fileID: 1012339123}
+  oldNPC: {fileID: 1599775694}
+  newNPC: {fileID: 1710868195}
   npcExMark: {fileID: 1748075734}
+  TheObjective: {fileID: 1305721679}
 --- !u!114 &855274484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18425,6 +18461,21 @@ MonoBehaviour:
   objective01: {fileID: 1174409346}
   objective02: {fileID: 1305721679}
   objective03: {fileID: 822938247}
+--- !u!114 &855274485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855274478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a94efb2cdabbea48ab0079a48438529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMark: {fileID: 1253524434}
+  objective01Mark: {fileID: 576301872}
+  questPopupUI: {fileID: 855274484}
 --- !u!1 &870967844
 GameObject:
   m_ObjectHideFlags: 0
@@ -19196,10 +19247,11 @@ Transform:
   - {fileID: 1253524438}
   - {fileID: 1027290437}
   - {fileID: 160186150}
+  - {fileID: 1334282600}
   - {fileID: 2124812992}
-  - {fileID: 855274480}
   - {fileID: 1071169759}
   - {fileID: 600244748}
+  - {fileID: 855274480}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947063120
@@ -19900,6 +19952,8 @@ MonoBehaviour:
   TheEnemy: {fileID: 2132928090}
   MoveSpeed: 3
   DealingDamage: 0
+  HitDelay: 0.25
+  RecoveryDelay: 0.65
 --- !u!114 &1012339123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19918,6 +19972,7 @@ MonoBehaviour:
   BaseXP: 10
   CalculatedXP: 0
   SpiderAIScript: {fileID: 0}
+  quest02: {fileID: 855274483}
 --- !u!65 &1012339124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19998,7 +20053,7 @@ Transform:
   m_GameObject: {fileID: 1012339119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.61242425, z: 0, w: 0.79052925}
-  m_LocalPosition: {x: -3.5, y: 7.009, z: 144.21}
+  m_LocalPosition: {x: 7.28, y: 7.009, z: 159.29}
   m_LocalScale: {x: 2.08, y: 0.935854, z: 2.5268059}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -26156,12 +26211,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334282598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.85593, y: -0.5882829, z: 81.198746}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 30.476532, y: -5.234462, z: -33.862854}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 945202926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1341024796
 Mesh:
@@ -30638,7 +30693,6 @@ MonoBehaviour:
   NPCText: {fileID: 273411895}
   GateOpen: {fileID: 272457841}
   NPCExMark: {fileID: 1748075734}
-  questPopupUI: {fileID: 855274484}
   Spider: {fileID: 415809299}
   AmbushTrigger: {fileID: 1470627214}
 --- !u!1 &1602108076
@@ -31078,6 +31132,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5949706081513176824, guid: a0cb3b35b5fb2564983f2275ffa69733, type: 3}
       insertIndex: -1
       addedObject: {fileID: 415507663}
+    - targetCorrespondingSourceObject: {fileID: 5949706081513176824, guid: a0cb3b35b5fb2564983f2275ffa69733, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415507666}
   m_SourcePrefab: {fileID: 100100000, guid: a0cb3b35b5fb2564983f2275ffa69733, type: 3}
 --- !u!4 &1645011641 stripped
 Transform:
@@ -31357,6 +31414,9 @@ MonoBehaviour:
   ThePlayer: {fileID: 1674769549}
   AttackRange: 3.5
   DealingDamage: 0
+  HitDelay: 0.35
+  RecoveryDelay: 1
+  isIntroPlaying: 0
 --- !u!114 &1653934212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31375,10 +31435,8 @@ MonoBehaviour:
   BaseXP: 20
   CalculatedXP: 0
   SpiderAIScript: {fileID: 0}
-  OldNPC: {fileID: 1599775694}
-  NewNPC: {fileID: 1710868195}
   SpiderAttackScript: {fileID: 0}
-  NPCExMark: {fileID: 1748075734}
+  quest02: {fileID: 855274483}
 --- !u!1 &1661384328
 GameObject:
   m_ObjectHideFlags: 0
@@ -40102,7 +40160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110337126}
   m_Layer: 0
-  m_Name: enemys
+  m_Name: Enemys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41405,7 +41463,6 @@ SceneRoots:
   - {fileID: 1281735092}
   - {fileID: 1548360990}
   - {fileID: 380106423}
-  - {fileID: 1334282600}
   - {fileID: 1642909817}
   - {fileID: 2110337126}
   - {fileID: 817427999}
