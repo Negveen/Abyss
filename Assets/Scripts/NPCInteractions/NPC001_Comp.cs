@@ -66,8 +66,6 @@ public class NPC001_Comp : MonoBehaviour
 			NPCName.SetActive(false);
 			NPCText.SetActive(false);
 			TextBox.SetActive(false);
-			ActionDisplay.SetActive (true);
-			ActionText.SetActive (true);
             NPCExMark.SetActive (false);
         }
 		else 

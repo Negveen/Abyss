@@ -10,8 +10,8 @@ public class PlayerCasting : MonoBehaviour
     void Update()
     {
 		RaycastHit Hit;
-		if (Physics.Raycast (transform.position, transform.TransformDirection (Vector3.forward), out Hit)) 
-		{
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Hit, Mathf.Infinity, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
 			ToTarget = Hit.distance;
 			DistanceFromTarget = ToTarget;
 		}  

@@ -14,6 +14,7 @@ public class SpiderBossEnemy : MonoBehaviour
     public GameObject OldNPC;
     public GameObject NewNPC;
     public SpiderBossAttack SpiderAttackScript;
+    public GameObject NPCExMark;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class SpiderBossEnemy : MonoBehaviour
         TheSpider.GetComponent<Animation>().enabled = false;
         OldNPC.SetActive(false);
         NewNPC.SetActive(true);
+        NPCExMark.SetActive(true);
         QuestManager.SetQuestState(2, 2);
     }
 }

@@ -15,6 +15,7 @@ public class NPC001 : MonoBehaviour
 	public GameObject NPCText;
 	public GameObject GateOpen;
     public GameObject NPCExMark;
+    public QuestPopupUI questPopupUI;
 
     void Update () 
 	{
@@ -65,12 +66,12 @@ public class NPC001 : MonoBehaviour
 			GateOpen.SetActive(true);
 			NPCText.SetActive(true);
 			yield return new WaitForSeconds(5.5f);
+
 			NPCName.SetActive(false);
 			NPCText.SetActive(false);
 			TextBox.SetActive(false);
-			ActionDisplay.SetActive (true);
-			ActionText.SetActive (true);
             NPCExMark.SetActive(false);
+            if (questPopupUI != null) questPopupUI.ShowPopup("Spider Problem", "Kill the spiders and their boss", "Return to Dave");
         }
 		else 
 		{

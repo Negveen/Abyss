@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,21 +8,39 @@ public class QuestPopupUI : MonoBehaviour
     public GameObject objective01;
     public GameObject objective02;
     public GameObject objective03;
+
     private Coroutine popupRoutine;
+
+    public bool IsShowing => popupRoutine != null;
+
     public void ShowPopup(string title, string obj1, string obj2 = "", string obj3 = "")
     {
         if (popupRoutine != null) StopCoroutine(popupRoutine);
         popupRoutine = StartCoroutine(PopupRoutine(title, obj1, obj2, obj3));
     }
+
+    public void RequestComplete(ObjectiveCompleteAnim anim)
+    {
+        StartCoroutine(WaitAndPlayComplete(anim));
+    }
+
+    private IEnumerator WaitAndPlayComplete(ObjectiveCompleteAnim anim)
+    {
+        yield return new WaitWhile(() => popupRoutine != null);
+        if (anim != null) anim.StartCompleteNow();
+    }
+
     private IEnumerator PopupRoutine(string title, string obj1, string obj2, string obj3)
     {
         activeQuestBox.SetActive(false);
         objective01.SetActive(false);
         objective02.SetActive(false);
         objective03.SetActive(false);
+
         activeQuestBox.GetComponent<Text>().text = title;
         yield return new WaitForSeconds(0.5f);
         activeQuestBox.SetActive(true);
+
         if (!string.IsNullOrEmpty(obj1))
         {
             objective01.GetComponent<Text>().text = obj1;
@@ -42,6 +59,7 @@ public class QuestPopupUI : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             objective03.SetActive(true);
         }
+
         yield return new WaitForSeconds(9f);
         activeQuestBox.SetActive(false);
         objective01.SetActive(false);
